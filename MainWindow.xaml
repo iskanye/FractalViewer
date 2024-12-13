@@ -1,0 +1,14 @@
+﻿<Window x:Class="FractalViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FractalViewer"
+        mc:Ignorable="d"
+        Title="Fractal Viewer" Width="1280" Height="740" SizeChanged="Rerender">
+    <Grid>
+        <Image x:Name="image" MouseWheel="Scaling" MouseDown="DragStart" MouseMove="Drag" MouseUp="DragEnd" Stretch="None" Grid.ColumnSpan="2"/>
+        <Slider x:Name="iterationsSlider" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="285" Maximum="1000" Minimum="10" Value="505" ValueChanged="Rerender" SmallChange="1" Grid.ColumnSpan="2"/>
+        <Label Content="Количество итераций" HorizontalAlignment="Left" Margin="300,7,0,0" VerticalAlignment="Top" FontFamily="Arial" Foreground="White"/>
+    </Grid>
+</Window>
