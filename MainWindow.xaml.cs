@@ -22,7 +22,7 @@ namespace FractalViewer
         private readonly GraphicsDevice gpu = GraphicsDevice.GetDefault();
 
         private double2 offset;
-        private float scale = 300;
+        private double scale = 300;
 
         private int Iterations
         {
@@ -56,7 +56,7 @@ namespace FractalViewer
             PixelFormat pf = PixelFormats.Bgra32;
             int stride = (texture.Width * pf.BitsPerPixel + 7) / 8;
 
-            byte[] pixels = new byte[stride * texture.Height];
+            var pixels = new byte[stride * texture.Height];
             var textureArray = texture.ToArray();
             var index = 0;
 
