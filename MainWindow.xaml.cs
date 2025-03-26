@@ -33,20 +33,31 @@ namespace FractalViewer
             get => WindowState == WindowState.Maximized ? new((int)ActualWidth, (int)ActualHeight) : new((int)Width, (int)Height);
         }
 
+        private bool isJulia;
         private Point startPos;
 
         public MainWindow()
         {
             InitializeComponent();
             Render(offset);
+            juliaCheckBox.Click += (sender, args) =>
+            {
+                isJulia = !isJulia;
+                Render(offset);
+            };
         }
 
         private void Render(double2 offset)
         {
             using var texture = gpu.AllocateReadWriteTexture2D<Bgra32, float4>(Size.X, Size.Y - 20);
-            gpu.For(texture.Width, texture.Height,
-                new Mandelbrot(texture, new(texture.Width, texture.Height), 
-                offset, scale, Iterations));
+            if (isJulia)
+                gpu.For(texture.Width, texture.Height,
+                    new JuliaShader(texture, new(texture.Width, texture.Height),
+                    offset, scale, Iterations, new double2(-.8, .156)));
+            else
+                gpu.For(texture.Width, texture.Height,
+                    new MandelbrotShader(texture, new(texture.Width, texture.Height), 
+                    offset, scale, Iterations));
 
             image.Source = TextureToBitmap(texture);
         }

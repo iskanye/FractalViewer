@@ -5,7 +5,7 @@ namespace FractalViewer
     [ThreadGroupSize(DefaultThreadGroupSizes.XY)]
     [GeneratedComputeShaderDescriptor]
     [RequiresDoublePrecisionSupport]
-    public readonly partial struct Mandelbrot(
+    public readonly partial struct MandelbrotShader(
         IReadWriteNormalizedTexture2D<float4> texture,
         int2 size,
         double2 offset,

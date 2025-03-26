@@ -10,5 +10,6 @@
         <Image x:Name="image" MouseWheel="Scaling" MouseDown="DragStart" MouseMove="Drag" MouseUp="DragEnd" Stretch="None" Grid.ColumnSpan="2"/>
         <Slider x:Name="iterationsSlider" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="285" Maximum="1000" Minimum="10" Value="505" ValueChanged="Rerender" SmallChange="1" Grid.ColumnSpan="2"/>
         <Label Content="Количество итераций" HorizontalAlignment="Left" Margin="300,7,0,0" VerticalAlignment="Top" FontFamily="Arial" Foreground="White"/>
+        <CheckBox x:Name="juliaCheckBox" Content="Множество Жюлиа" HorizontalAlignment="Left" Margin="16,47,0,0" VerticalAlignment="Top" Height="17" Width="154" FontSize="14" Foreground="White"/>
     </Grid>
 </Window>
