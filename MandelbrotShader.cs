@@ -32,7 +32,7 @@ namespace FractalViewer
             {
                 if (z.X * z.X + z.Y * z.Y > 4)
                 {
-                    texture[ThreadIds.XY].RGBA = new(i * .01f, 0, 0, 1);
+                    texture[ThreadIds.XY].RGBA = Utils.Color(i, iterations, z);
                     return;
                 }
 
