@@ -53,7 +53,7 @@ namespace FractalViewer
             if (isJulia)
                 gpu.For(texture.Width, texture.Height,
                     new JuliaShader(texture, new(texture.Width, texture.Height),
-                    offset, scale, Iterations, new double2(-.8, .156)));
+                    offset, scale, Iterations, new double2(imaginarySlider.Value, .156)));
             else
                 gpu.For(texture.Width, texture.Height,
                     new MandelbrotShader(texture, new(texture.Width, texture.Height), 
