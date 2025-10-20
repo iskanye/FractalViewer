@@ -2,17 +2,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="740"
+        mc:Ignorable="d"
+        MinWidth="1000" MinHeight="600"
         x:Class="FractalViewer.MainWindow"
         Title="Fractal Viewer"
-        Background="White">
+        Background="Black">
     <Grid>
         <Image 
             Name="image" 
-            MouseWheel="Scaling" 
-            MouseDown="DragStart" 
-            MouseMove="Drag"
-            MouseUp="DragEnd"
+            PointerWheelChanged="Scaling" 
+            PointerPressed="DragStart" 
+            PointerMoved="Drag"
+            PointerReleased="DragEnd"
             Stretch="None"
             Grid.ColumnSpan="2"
         />
@@ -21,19 +22,19 @@
             HorizontalAlignment="Left"
             Margin="10,10,0,0"
             VerticalAlignment="Top"
-            Width="342"
+            Width="300"
             Maximum="2500"
             Minimum="10"
-            Value="505" 
+            Value="500" 
             ValueChanged="Rerender" 
             SmallChange="1"
         />        
         <Slider 
             Name="imaginarySlider" 
             HorizontalAlignment="Right" 
-            Margin="10,10,0,0" 
+            Margin="10,10,10,0" 
             VerticalAlignment="Top" 
-            Width="342" 
+            Width="300" 
             Maximum="1" 
             Minimum="-1" 
             Value="0" 
@@ -42,10 +43,10 @@
         <Label 
             Content="Количество итераций" 
             HorizontalAlignment="Left"
-            Margin="357,7,0,0" 
-            VerticalAlignment="Top" 
-            FontFamily="Arial" 
-            Foreground="White"
+            Margin="320,20,0,0" 
+            VerticalAlignment="Top"
+            Foreground="White"          
+            Height="50" 
         />
         <CheckBox 
             Name="juliaCheckBox" 
@@ -54,7 +55,7 @@
             Margin="16,47,0,0" 
             VerticalAlignment="Top" 
             Height="17" 
-            Width="154" 
+            Width="180" 
             FontSize="14" 
             Foreground="White"
         />
