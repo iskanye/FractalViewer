@@ -1,13 +1,9 @@
 using Avalonia;
-using Avalonia.Platform;
 using Avalonia.Controls;
-using Avalonia.Media.Imaging;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 
 using ComputeSharp;
-
-using System.IO;
 
 namespace FractalViewer;
 
@@ -57,13 +53,7 @@ public partial class MainWindow : Window
                 new MandelbrotShader(texture, new(texture.Width, texture.Height),
                 offset, scale, Iterations));
 
-        image.Source = TextureToBitmap(texture);
-    }
-
-    private Bitmap TextureToBitmap(ReadWriteTexture2D<Bgra32, Float4> texture)
-    {
-        texture.Save("temp.png");
-        return new Bitmap("temp.png");
+        image.Source = Utils.TextureToBitmap(texture);
     }
 
     private void Scaling(object sender, PointerWheelEventArgs e)
